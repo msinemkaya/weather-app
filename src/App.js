@@ -1,24 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
+import LoadingSpinner from './components/LoadigSpinner';
+import Navbar from './components/Navbar';
+import SubInfo from './components/SubInfo';
+import WeatherCard from './components/WeatherCard';
+import WeatherSlider from './components/WeatherSlider';
+import { TiWeatherWindy } from "react-icons/ti";
+import { WiThermometerExterior} from "react-icons/wi"
 
 function App() {
+
+  const [isLoading, setIsLoading] = useState(false)
+
+  // let content = (
+  //     <WeatherCard name={'Aydın, TR'} degree={'15'} date={'April 22, 1999'} />
+  //     <div className='sub-info-container'>
+  //       <SubInfo info={"humidity"} icon={<WiThermometerExterior/>} value={'50%'}/>
+  //       <SubInfo info={"wind"} icon={<TiWeatherWindy />} value={'19km/h'}/>
+  //     </div>
+  //     <WeatherSlider />
+  // )
+
+  // if(isLoading) {
+  //   content = <LoadingSpinner />
+  // }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='container'>
+      <Navbar />
+      <WeatherCard name={'Aydın, TR'} degree={'15'} date={'April 22, 1999'} />
+      <div className='sub-info-container'>
+        <SubInfo info={"humidity"} icon={<WiThermometerExterior/>} value={'50%'}/>
+        <SubInfo info={"wind"} icon={<TiWeatherWindy />} value={'19km/h'}/>
+      </div>
+      <WeatherSlider />
+      {/* <LoadingSpinner /> */}
     </div>
+
+    // <>
+    //   <div className='container'>
+    //     <Navbar />
+    //     <LoadingSpinner /> 
+    //   </div>  
+    // </> 
   );
 }
 

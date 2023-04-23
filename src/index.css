@@ -1,13 +1,185 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Tilt+Prism&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&display=swap');
+
+
+/* * {
+  outline: 1px solid red;
+} */
+
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  @apply min-h-screen font-alegreya overflow-scroll
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#root {
+  @apply min-h-screen bg-gradient-to-b from-bg-primary-pink to-bg-primary-purple flex flex-col items-center
+}
+
+.container {
+  @apply flex flex-col items-center relative
+}
+
+.navbar {
+  @apply h-12 flex items-center justify-around w-full mb-20 py-8
+}
+
+.search {
+  @apply flex gap-3
+}
+
+.search-icon {
+  @apply text-white/70 hover:text-white/90 hover:scale-110 duration-300 md:text-2xl
+}
+
+.search-input {
+  @apply rounded-full px-4 w-44 box-border text-primary-color font-medium leading-6 text-sm bg-white focus:outline-none
+}
+
+.search-input {
+  background: rgba( 255, 255, 255, 0.5 );
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+  backdrop-filter: blur( 5.5px );
+  -webkit-backdrop-filter: blur( 5.5px );
+  border-radius: 10px;
+}
+
+.logo{
+  @apply first-letter:text-3xl first-letter:font-tilt-prism text-white md:first-letter:text-5xl md:text-2xl
+}
+
+.weather-icon-div{
+  @apply flex items-center justify-end text-yellow-300 text-6xl
+}
+
+.box{
+  @apply px-12 py-8 rounded-3xl max-w-xs relative
+}
+
+.icon {
+  @apply w-36 -z-10 absolute 
+}
+
+.icon:nth-child(1) {
+  @apply -rotate-[24deg] -top-16 -left-14
+}
+
+.icon:nth-child(2) {
+  @apply -rotate-3 -top-12 left-2 
+}
+
+.box {
+  background: rgba( 255, 255, 255, 0.2 );
+  backdrop-filter: blur( 14.5px );
+  -webkit-backdrop-filter: blur( 14.5px );
+  border-radius: 10px;
+}
+
+.box-shadow {
+  box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+}
+
+.city-name-container {
+  @apply grid grid-cols-3
+}
+
+.city-name {
+  @apply font-bold text-lg text-primary-color inline col-span-2 col-start-2 text-right break-words
+}
+
+.weather-container {
+  @apply flex mt-3 gap-4 justify-between
+}
+
+.weather-info {
+  @apply flex flex-col justify-around
+}
+
+.degree {
+  @apply text-7xl font-semibold text-secondary-color 
+}
+
+.centigrade-symbol {
+  @apply text-sm font-bold align-super
+}
+
+.todays-date {
+  @apply text-black/50 text-sm font-medium leading-[14px] 
+}
+
+.weather-stats {
+  @apply space-y-2
+}
+
+.stats {
+  @apply flex flex-col gap-1 h-full justify-center items-end
+}
+
+.stat {
+  @apply px-2 py-[0.125rem] rounded-full text-xs text-white font-medium text-end inline max-w-fit capitalize
+}
+
+.stat:nth-child(odd) {
+  @apply bg-bg-primary-pink/50
+}
+
+.stat:nth-child(even) {
+  @apply bg-bg-primary-purple/50
+}
+
+.sub-info-container {
+  @apply my-8
+}
+
+.sub-info {
+  @apply flex gap-4 text-white items-center justify-between
+}
+
+.sub-info-icon {
+  @apply text-xl 
+}
+
+.sub-info-text {
+  @apply text-sm first-letter:uppercase leading-6
+}
+
+.sub-info-info {
+  @apply flex gap-2 items-center
+}
+
+.today {
+  @apply text-2xl font-medium text-secondary-color px-2 sm:px-20 lg:px-32 xl:px-56
+}
+
+.slider {
+  @apply max-w-full px-12 my-2
+}
+
+.slick-slider {
+  @apply sm:mx-16 lg:mx-28 xl:mx-52
+}
+
+.slider-item {
+  @apply m-2 px-1 py-2
+}
+
+.slider-icon {
+  @apply text-4xl text-yellow-300 flex justify-center pt-2
+}
+
+.slider-degree {
+  @apply text-lg text-center tracking-wide text-secondary-color/70 font-medium
+}
+
+.slider-hour {
+  @apply text-black/80 text-sm font-medium text-center
+}
+
+.spinner-container {
+  @apply h-screen flex items-center justify-center absolute
+}
+
+.loading-spinner {
+  @apply w-12 h-12 border-4 border-bg-primary-pink/60 border-t-4 border-t-bg-primary-purple/60 rounded-full animate-spin 
 }
